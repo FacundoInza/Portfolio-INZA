@@ -90,23 +90,21 @@ const Skills = () => {
           const itemDelay = i * 0.07
 
           return (
-            <AnimatePresence>
-              <motion.div
-                variants={itemVariants}
-                initial={'initial'}
-                animate={mainControls}
-                exit={'initial'}
-                transition={{ delay: itemDelay, duration: 0.8 }} // Aplica la animación secuencial con el retraso específico
-              >
-                <Image
-                  key={i}
-                  filter="grayscale(100%)"
-                  src={url}
-                  alt={`Imagen ${i + 1}`}
-                  width={{ base: '50px', md: '80px' }}
-                />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              variants={itemVariants}
+              initial={'initial'}
+              animate={mainControls}
+              exit={'initial'}
+              transition={{ delay: itemDelay, duration: 0.8 }} // Aplica la animación secuencial con el retraso específico
+            >
+              <Image
+                key={i}
+                filter="grayscale(100%)"
+                src={url}
+                alt={`Imagen ${i + 1}`}
+                width={{ base: '50px', md: '80px' }}
+              />
+            </motion.div>
           )
         })}
       </Grid>
