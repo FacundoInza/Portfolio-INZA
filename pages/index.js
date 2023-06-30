@@ -1,25 +1,24 @@
 import React from 'react'
-import HeaderFS from '../components/HeaderFS'
-import Cartoons from '../components/Cartoons'
-import AboutMe from '../components/AboutMe'
-import { Box } from '@chakra-ui/react'
+import HeaderFS from '../components/sections/HeaderFS'
+import Cartoons from '../components/sections/Cartoons'
+import AboutMe from '../components/sections/AboutMe'
+import Skills from '../components/sections/Skills'
 
 const Page = () => {
   return (
     <>
-      <HeaderFS />
+      <section id="home">
+        <HeaderFS />
+        <Cartoons />
+      </section>
 
-      <Cartoons />
+      <section id="about" style={{ paddingTop: 180 }}>
+        <AboutMe />
+      </section>
 
-      <AboutMe />
-
-      <Box
-        width={'100%'}
-        height={'800px'}
-        backgroundColor={'#070328'}
-        marginTop={40}
-        borderRadius={'45px'}
-      ></Box>
+      <section id="skills" style={{ paddingTop: 180 }}>
+        <Skills />
+      </section>
     </>
   )
 }

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import NextLink from 'next/link'
-import { animateScroll as scroll } from 'react-scroll'
+import { Link } from 'react-scroll'
 import {
   Box,
   Container,
-  Flex,
   IconButton,
   Menu,
   MenuButton,
@@ -15,65 +13,99 @@ import {
 import Logo from './Logo'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ToggleThemeButton from './theme-toggle-button'
-import style from './Navbar.module.css'
+import { motion } from 'framer-motion'
 
 const Navbar = (props) => {
   const { path } = props
 
-  const [isSticky, setIsSticky] = useState(false)
-
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsSticky(true)
-    } else {
-      setIsSticky(false)
-    }
-  }
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
-  const scrollToSection = (sectionId) => {
-    scroll.scrollTo(sectionId, {
-      duration: 500, // Duración de la animación en milisegundos
-      smooth: true, // Desplazamiento suave
-      offset: -50, // Desplazamiento adicional (ajusta según tus necesidades)
-    })
+  const navbarVariants = {
+    scrolled: {
+      position: 'sticky',
+      top: 0,
+      backdropFilter: 'blur(50px)',
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
+      },
+    },
+    normal: {
+      backdropFilter: 'blur(0px)',
+      backgroundColor: 'transparent',
+      transition: {
+        duration: 2,
+        ease: 'easeOut',
+      },
+    },
   }
 
   return (
-    <Box
-      as="nav"
-      bg={'transparent'}
-      zIndex={1}
-      display={'flex'}
-      justifyContent={'center'}
-      className={isSticky ? style.sticky : ''}
-      {...props}
-    >
-      <Container display={'flex'} p={2} maxW={'container.md'} wrap="wrap">
-        <Logo />
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems={'center'}
-          justifyContent={'space-around'}
-          flexGrow={1}
-          marginLeft={2}
-        >
-          <a onClick={() => scrollToSection('about')}>HOME</a>
-          <a onClick={() => scrollToSection('skills')}>ABOUT</a>
-          <a onClick={() => scrollToSection('projects')}>SKILLS</a>
-          <a onClick={() => scrollToSection('contac')}>CONTACT</a>
-          <ToggleThemeButton />
-        </Stack>
+    <>
+      <motion.nav
+        as="nav"
+        initial={isScrolled ? 'scrolled' : 'normal'}
+        animate={isScrolled ? 'scrolled' : 'normal'}
+        variants={navbarVariants}
+        style={{
+          zIndex: 100,
+          display: 'flex',
+          justifyContent: 'center',
+          padding: 2,
+          maxWidth: 'container.md',
+          flexWrap: 1,
+        }}
+        {...props}
+      >
+        <Box display={'flex'} width={'50%'}>
+          <Logo />
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            display={{ base: 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
+            alignItems={'center'}
+            justifyContent={'space-around'}
+            flexGrow={1}
+            marginLeft={2}
+          >
+            <Link to="about" smooth={true} duration={500}>
+              <button>ABOUT</button>
+            </Link>
+            <Link to="skills" smooth={true} duration={500}>
+              <button>SKILLS</button>
+            </Link>
+            <Link to="contact" smooth={true} duration={500}>
+              <button>PROJECTS</button>
+            </Link>
+            <Link to="contact" smooth={true} duration={500}>
+              <button>CONTACT</button>
+            </Link>
+            <ToggleThemeButton />
+          </Stack>
+        </Box>
 
-        <Box flex={1} align={'right'}>
+        <Box
+          flex={1}
+          display={{ base: 'inline-block', md: 'none' }}
+          align={'right'}
+        >
           <Box m={6} display={{ base: 'inline-block', md: 'none' }}>
             <Menu>
               <MenuButton
@@ -83,24 +115,24 @@ const Navbar = (props) => {
                 aria-label="Options"
               />
               <MenuList>
-                <NextLink href={'/'}>
+                <Link to={'home'} smooth={true} duration={500}>
                   <MenuItem>Home</MenuItem>
-                </NextLink>
-                <NextLink href={'/'}>
+                </Link>
+                <Link to={'about'} smooth={true} duration={500}>
                   <MenuItem>About</MenuItem>
-                </NextLink>
-                <NextLink href={'/'}>
+                </Link>
+                <Link to={'projects'} smooth={true} duration={500}>
                   <MenuItem>Projects</MenuItem>
-                </NextLink>
-                <NextLink href={'/'}>
+                </Link>
+                <Link to={'contacs'} smooth={true} duration={500}>
                   <MenuItem>Contacs</MenuItem>
-                </NextLink>
+                </Link>
               </MenuList>
             </Menu>
           </Box>
         </Box>
-      </Container>
-    </Box>
+      </motion.nav>
+    </>
   )
 }
 
