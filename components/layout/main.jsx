@@ -5,7 +5,7 @@ import Navbar from '../Navbar'
 
 const Main = ({ children, router }) => {
   return (
-    <Box as="main">
+    <Box as="main" overflowX={'hidden'}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Facundo Inza - Homepage</title>
@@ -13,7 +13,7 @@ const Main = ({ children, router }) => {
 
       <Navbar path={router.asPath} />
 
-      <Container maxW="container.xl" pt={14}>
+      <Container maxW="container.xl" pt={20}>
         {children}
       </Container>
     </Box>
