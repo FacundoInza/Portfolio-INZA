@@ -26,7 +26,6 @@ const Skills = () => {
   const mainControls = useAnimation()
 
   useEffect(() => {
-    console.log(isInView)
     if (isInView) {
       mainControls.start('animate')
     } else {
@@ -36,9 +35,11 @@ const Skills = () => {
 
   const containerVariants = {
     initial: {
-      filter: 'blur(10px)',
+      filter: 'blur(20px)',
+      scale: 1.2,
     },
     animate: {
+      scale: 1,
       filter: 'blur(0px)',
       transition: {
         duration: 1,
@@ -52,6 +53,13 @@ const Skills = () => {
     },
     animate: {
       opacity: 1,
+    },
+    hover: {
+      scale: 1.2,
+      transition: {
+        delay: 0,
+        duration: 0.1,
+      },
     },
   }
 
@@ -67,7 +75,7 @@ const Skills = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        background: 'rgba(0, 0, 0, 0.3)',
+        background: 'rgba(7, 3, 40, 0.8)',
       }}
       initial="initial"
       animate={mainControls}
@@ -91,15 +99,17 @@ const Skills = () => {
 
           return (
             <motion.div
+              key={i}
               variants={itemVariants}
               initial={'initial'}
               animate={mainControls}
               exit={'initial'}
+              whileHover={'hover'}
               transition={{ delay: itemDelay, duration: 0.8 }} // Aplica la animación secuencial con el retraso específico
             >
               <Image
                 key={i}
-                filter="grayscale(100%)"
+                filter="grayscale(50%)"
                 src={url}
                 alt={`Imagen ${i + 1}`}
                 width={{ base: '50px', md: '80px' }}

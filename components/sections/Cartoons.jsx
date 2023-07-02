@@ -63,6 +63,7 @@ const Cartoons = () => {
     >
       <motion.div
         style={{
+          zIndex: 3,
           backgroundImage: 'url(https://i.imgur.com/8a8Nq09.png)',
           minWidth: '265px',
           height: '145px',
@@ -77,6 +78,7 @@ const Cartoons = () => {
 
       <motion.div variants={variantCartoon} whileHover={'hover'}>
         <Image
+          zIndex={1}
           src="https://i.imgur.com/BTeyeZ5.png"
           marginBottom={5}
           minWidth={'300px'}
@@ -85,6 +87,7 @@ const Cartoons = () => {
 
       <motion.div
         style={{
+          zIndex: 3,
           backgroundImage: 'url(https://i.imgur.com/NrSvePm.png)',
           minWidth: '290px',
           height: '310px',
