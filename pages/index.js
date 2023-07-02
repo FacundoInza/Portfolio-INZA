@@ -3,6 +3,7 @@ import HeaderFS from '../components/sections/HeaderFS'
 import Cartoons from '../components/sections/Cartoons'
 import AboutMe from '../components/sections/AboutMe'
 import Skills from '../components/sections/Skills'
+import Projects from '../components/sections/Projects'
 
 const Page = () => {
   return (
@@ -18,6 +19,14 @@ const Page = () => {
 
       <section id="skills" style={{ paddingTop: 180 }}>
         <Skills />
+      </section>
+
+      <section id="projects" style={{ paddingTop: 180 }}>
+        <Projects />
+      </section>
+
+      <section id="contact" style={{ paddingTop: 180 }}>
+        <Projects />
       </section>
     </>
   )
