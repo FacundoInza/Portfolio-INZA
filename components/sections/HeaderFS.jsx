@@ -129,6 +129,7 @@ const HeaderFS = () => {
           >
             <Text
               fontSize={{ base: '10px', xl: '16px' }}
+              textAlign={'center'}
               style={{
                 padding: 5,
                 color: '#607B96',

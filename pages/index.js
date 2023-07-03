@@ -4,6 +4,7 @@ import Cartoons from '../components/sections/Cartoons'
 import AboutMe from '../components/sections/AboutMe'
 import Skills from '../components/sections/Skills'
 import Projects from '../components/sections/Projects'
+import Contact from '../components/sections/Contact'
 
 const Page = () => {
   return (
@@ -26,7 +27,7 @@ const Page = () => {
       </section>
 
       <section id="contact" style={{ paddingTop: 180 }}>
-        <Projects />
+        <Contact />
       </section>
     </>
   )
