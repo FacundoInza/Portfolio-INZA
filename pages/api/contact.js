@@ -1,6 +1,5 @@
-import { db, seedData } from '../../database'
+import { db } from '../../database'
 import Email from '../../models/Emails'
-const nodemailer = require('nodemailer')
 
 export default async function handler(req, res) {
   switch (req.method) {

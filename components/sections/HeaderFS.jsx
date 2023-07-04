@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Box, Heading, Link, Text } from '@chakra-ui/react'
-import { animate, useAnimation, useInView } from 'framer-motion'
+import { useAnimation, useInView } from 'framer-motion'
 import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
@@ -73,7 +73,7 @@ const HeaderFS = () => {
     <>
       <motion.div variants={variantsUp} initial="hidden" animate={mainControls}>
         <Heading ref={refHeaders} borderRadius="lg" align="center" margin={5}>
-          Hi!, I'm Facundo
+          Hi!, I&apos;m Facundo
         </Heading>
       </motion.div>
 
@@ -138,7 +138,7 @@ const HeaderFS = () => {
                 fontWeight: 450,
               }}
             >
-              // you can also see it on my Github page
+              {'//'} you can also see it on my Github page
             </Text>
             <Box display={'flex'} padding={2}>
               <Text
