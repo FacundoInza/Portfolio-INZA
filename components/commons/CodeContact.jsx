@@ -2,17 +2,17 @@ import { Box, Heading, Text } from '@chakra-ui/layout'
 import React from 'react'
 import { obtenerFechaActual } from '../../utils'
 
-const CodeContact = () => {
+const CodeContact = ({ message, firstName, lastName, email }) => {
   const actualDate = obtenerFechaActual()
   return (
     <Box
-      width={{ base: '100%', lg: '50%' }}
-      height={{ base: '50%', lg: '100%' }}
+      height={{ base: '30%', xl: '100%' }}
+      width={{ base: '100%', xl: '60%' }}
     >
       <Heading fontSize={{ base: 40, md: 56 }} marginBottom={10}>
         Contact Me
       </Heading>
-      <Box display={'flex'}>
+      <Box display={'flex'} width={'100%'}>
         <Text
           fontSize={{ base: '10px', lg: '18px' }}
           style={{
@@ -208,7 +208,7 @@ const CodeContact = () => {
             fontWeight: 500,
           }}
         >
-          {`"Facundo Inza"`}
+          {`"${firstName} ${lastName}"`}
         </Text>
         <Text
           fontSize={{ base: '10px', lg: '18px' }}
@@ -263,7 +263,7 @@ const CodeContact = () => {
             fontWeight: 500,
           }}
         >
-          {`"facundoinza5@gmail.com"`}
+          {`"${email}"`}
         </Text>
         <Text
           fontSize={{ base: '10px', lg: '18px' }}
@@ -318,7 +318,7 @@ const CodeContact = () => {
             fontWeight: 500,
           }}
         >
-          {`"If you want to contact me to collaborate with a project , or answer questions about the projects I have created . Send me an email my email address or for a faster response to my cell phone.",`}
+          {`"${message}",`}
         </Text>
       </Box>
       <Box display={'flex'}>

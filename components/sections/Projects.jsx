@@ -105,12 +105,7 @@ const Projects = () => {
         background={`linear-gradient(90deg, rgba(110, 0, 194, 0.20) 0%, #2F0743 100%)`}
         height="800px"
       >
-        <Heading
-          fontSize={'40px'}
-          color={'#C7A052'}
-          padding={10}
-          textAlign={'center'}
-        >
+        <Heading fontSize={'40px'} padding={10} textAlign={'center'}>
           Projects
         </Heading>
         <Suspense fallback={<div>Loading...</div>}>

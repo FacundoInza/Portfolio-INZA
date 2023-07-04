@@ -39,3 +39,13 @@ export function fetchData() {
 
   return getSuspender(promise)
 }
+
+export async function fetchSendEmail(contentEmail) {
+  try {
+    const { data } = await axios.post(`${apiUrl}contact`, contentEmail)
+    return data
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+}
