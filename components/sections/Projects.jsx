@@ -8,6 +8,13 @@ import {
   Divider,
   Heading,
   Image,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
   Stack,
   Tag,
   Text,
@@ -75,7 +82,7 @@ const Projects = () => {
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    autoplay: autoplay || isInView, // Habilitar la reproducción automática
+    autoplay: autoplay, // Habilitar la reproducción automática
     speed: 2000,
     autoplaySpeed: 100,
   }
@@ -98,12 +105,7 @@ const Projects = () => {
         background={`linear-gradient(90deg, rgba(110, 0, 194, 0.20) 0%, #2F0743 100%)`}
         height="800px"
       >
-        <Heading
-          fontSize={'40px'}
-          color={'#C7A052'}
-          padding={10}
-          textAlign={'center'}
-        >
+        <Heading fontSize={'40px'} padding={10} textAlign={'center'}>
           Projects
         </Heading>
         <Suspense fallback={<div>Loading...</div>}>
@@ -128,11 +130,28 @@ const Projects = () => {
                 <CardBody height={'255px'}>
                   <Stack spacing="3" marginBottom={2}>
                     <Heading size="md">{project.name}</Heading>
-                    <Text>
-                      {project.description.length > 195
-                        ? project.description.substring(0, 195) + '...'
-                        : project.description}
-                    </Text>
+                    <Popover placement="right">
+                      <PopoverTrigger>
+                        <motion.div
+                          whileHover={{
+                            backgroundColor: 'rgba(7, 2, 26, 0.5)',
+                          }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <Text>
+                            {project.description.length > 195
+                              ? project.description.substring(0, 195) + '...'
+                              : project.description}
+                          </Text>
+                        </motion.div>
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader>Description</PopoverHeader>
+                        <PopoverBody>{project.description}</PopoverBody>
+                      </PopoverContent>
+                    </Popover>
                   </Stack>
 
                   {project.tecnologies.map((tech, i) => (

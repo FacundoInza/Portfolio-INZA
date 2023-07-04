@@ -79,16 +79,16 @@ const Navbar = (props) => {
             flexGrow={1}
             marginLeft={2}
           >
-            <Link to="about" smooth={true} duration={500}>
+            <Link to="about" smooth={true} duration={1000}>
               <button>ABOUT</button>
             </Link>
-            <Link to="skills" smooth={true} duration={500}>
+            <Link to="skills" smooth={true} duration={1000}>
               <button>SKILLS</button>
             </Link>
-            <Link to="projects" smooth={true} duration={500}>
+            <Link to="projects" smooth={true} duration={1000}>
               <button>PROJECTS</button>
             </Link>
-            <Link to="contact" smooth={true} duration={500}>
+            <Link to="contact" smooth={true} duration={1000}>
               <button>CONTACT</button>
             </Link>
             <ToggleThemeButton />
@@ -109,16 +109,19 @@ const Navbar = (props) => {
                 aria-label="Options"
               />
               <MenuList>
-                <Link to={'home'} smooth={true} duration={500}>
+                <Link to={'home'} smooth={true} duration={1000}>
                   <MenuItem>Home</MenuItem>
                 </Link>
-                <Link to={'about'} smooth={true} duration={500}>
+                <Link to={'about'} smooth={true} duration={1000}>
                   <MenuItem>About</MenuItem>
                 </Link>
-                <Link to={'projects'} smooth={true} duration={500}>
+                <Link to={'skills'} smooth={true} duration={1000}>
+                  <MenuItem>Skills</MenuItem>
+                </Link>
+                <Link to={'projects'} smooth={true} duration={1000}>
                   <MenuItem>Projects</MenuItem>
                 </Link>
-                <Link to={'contacs'} smooth={true} duration={500}>
+                <Link to={'contact'} smooth={true} duration={1000}>
                   <MenuItem>Contacs</MenuItem>
                 </Link>
               </MenuList>

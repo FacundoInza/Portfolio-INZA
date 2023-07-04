@@ -78,6 +78,7 @@ const AboutMe = () => {
         alignItems={'center'}
         flexDirection={{ base: 'column', lg: 'row' }}
         padding={{ base: 2, lg: 20 }}
+        ref={refAbout}
       >
         <motion.div
           variants={rightVariants}
@@ -102,7 +103,6 @@ const AboutMe = () => {
           animate={mainControls}
         >
           <Box
-            ref={refAbout}
             width={{ base: '100%', md: '80%' }}
             marginLeft={{ base: 2, md: 20 }}
           >
