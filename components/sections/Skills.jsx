@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { AnimatePresence, motion, useAnimation, useInView } from 'framer-motion'
-import { Box, Grid, Heading, Image, Text } from '@chakra-ui/react'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { Grid, Heading, Image } from '@chakra-ui/react'
 
 const urlLogos = [
   'https://i.imgur.com/CptLkyX.png',

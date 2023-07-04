@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
 import {
   Box,
-  Container,
   IconButton,
   Menu,
   MenuButton,
@@ -16,8 +15,6 @@ import ToggleThemeButton from './theme-toggle-button'
 import { motion } from 'framer-motion'
 
 const Navbar = (props) => {
-  const { path } = props
-
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {

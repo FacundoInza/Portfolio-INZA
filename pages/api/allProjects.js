@@ -1,4 +1,4 @@
-import { db, seedData } from '../../database'
+import { db } from '../../database'
 import Project from '../../models/project'
 
 export default async function handler(req, res) {

@@ -4,14 +4,10 @@ import { motion, useAnimation, useInView } from 'framer-motion'
 
 import {
   Box,
-  Heading,
-  Text,
   FormControl,
-  FormLabel,
   Input,
   Textarea,
   Button,
-  ButtonGroup,
   useToast,
 } from '@chakra-ui/react'
 
@@ -65,7 +61,7 @@ const Contact = () => {
       email,
     }
 
-    const data = sendEmail(contentEmail)
+    sendEmail(contentEmail)
   }
 
   const sendEmail = async (contentEmail) => {

@@ -1,6 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
-import { FaRegCopyright } from 'react-icons/fa'
 
 const Footer = () => {
   return (

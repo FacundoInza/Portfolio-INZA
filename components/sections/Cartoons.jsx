@@ -1,10 +1,8 @@
-import { Box, Image, useBreakpointValue } from '@chakra-ui/react'
+import { Image, useBreakpointValue } from '@chakra-ui/react'
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const Cartoons = () => {
-  const imageWidth = useBreakpointValue({ base: '80%', md: '60%', lg: '40%' })
-
   const constraintsRef = useRef(null)
 
   const [isDropped, setIsDropped] = useState(false)
@@ -79,6 +77,7 @@ const Cartoons = () => {
       <motion.div variants={variantCartoon} whileHover={'hover'}>
         <Image
           zIndex={1}
+          alt="image"
           src="https://i.imgur.com/BTeyeZ5.png"
           marginBottom={5}
           minWidth={'300px'}
