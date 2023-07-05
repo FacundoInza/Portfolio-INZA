@@ -28,16 +28,20 @@ import React, { useEffect, useRef, useState } from 'react'
 import { fetchData } from '../../services/axios'
 import Slider from 'react-slick'
 import { motion, useInView, useAnimation } from 'framer-motion'
+import { seedData } from '../../database'
 
+seedData
 const Projects = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
     getProjects()
   })
+
   const getProjects = async () => {
     const data = await fetchData()
-    setProjects(data)
+
+    setProjects(seedData.projects)
   }
   const refProjects = useRef(null)
   const isInView = useInView(refProjects)
