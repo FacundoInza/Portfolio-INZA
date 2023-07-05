@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-const apiUrl = 'http://localhost:3000/api/'
+import projectsApi from '../apis/projectsApi'
 
 function getSuspender(promise) {
   let status = 'pending'
@@ -31,18 +29,18 @@ function getSuspender(promise) {
   return { read }
 }
 
-export function fetchData() {
-  const promise = axios
-    .get(`${apiUrl}allProjects`)
+export async function fetchData() {
+  const { data } = await projectsApi
+    .get(`/allProjects`)
     .then((res) => res)
     .then((data) => data)
 
-  return getSuspender(promise)
+  return data
 }
 
 export async function fetchSendEmail(contentEmail) {
   try {
-    const { data } = await axios.post(`${apiUrl}contact`, contentEmail)
+    const { data } = await projectsApi.post(`/contact`, contentEmail)
     return data
   } catch (error) {
     console.log(error)

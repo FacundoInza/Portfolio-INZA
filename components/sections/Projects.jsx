@@ -29,11 +29,16 @@ import { fetchData } from '../../services/axios'
 import Slider from 'react-slick'
 import { motion, useInView, useAnimation } from 'framer-motion'
 
-const apiData = fetchData()
-
 const Projects = () => {
-  const projects = apiData.read().data
+  const [projects, setProjects] = useState([])
 
+  useEffect(() => {
+    getProjects()
+  })
+  const getProjects = async () => {
+    const data = await fetchData()
+    setProjects(data)
+  }
   const refProjects = useRef(null)
   const isInView = useInView(refProjects)
 
@@ -108,9 +113,10 @@ const Projects = () => {
         <Heading fontSize={'40px'} padding={10} textAlign={'center'}>
           Projects
         </Heading>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Slider {...settings}>
-            {projects.map((project, i) => (
+
+        <Slider {...settings}>
+          {projects &&
+            projects.map((project, i) => (
               <Card
                 key={i}
                 maxW="sm"
@@ -203,8 +209,7 @@ const Projects = () => {
                 </CardFooter>
               </Card>
             ))}
-          </Slider>
-        </Suspense>
+        </Slider>
       </Box>
     </motion.div>
   )
