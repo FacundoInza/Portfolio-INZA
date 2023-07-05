@@ -25,7 +25,6 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import React, { useEffect, useRef, useState } from 'react'
 
-import { fetchData } from '../../services/axios'
 import Slider from 'react-slick'
 import { motion, useInView, useAnimation } from 'framer-motion'
 import { seedData } from '../../database'
@@ -39,10 +38,9 @@ const Projects = () => {
   })
 
   const getProjects = async () => {
-    const data = await fetchData()
-
     setProjects(seedData.projects)
   }
+
   const refProjects = useRef(null)
   const isInView = useInView(refProjects)
 
